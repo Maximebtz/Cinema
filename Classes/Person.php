@@ -27,6 +27,9 @@ class Person{
 
     //Getters and setters
 
+    public function getCompletName(){
+        return $this->name . " " . $this->surname;
+    }
     //Name
     public function getName()
     {
@@ -72,7 +75,7 @@ class Person{
     //Date of birth
     public function getDob()
     {
-        return $this->dob;
+        return $this->dob->format("d-m-Y");
     }
 
    public function setDob($dob)

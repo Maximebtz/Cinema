@@ -27,6 +27,17 @@ class film{
 
     //Getters and setters 
 
+    public function getInfo(){
+
+        return "<h2>New Film:</h2><br>
+        - Title: " . $this->title .
+        "<br>- Date of release: " . $this->release . 
+        "<br>- Duration: " . $this->time ."min
+        <br>- Synopsis: " . $this->synopsis . 
+        "<br>- Director: " . $this->director->getCompletName();
+        
+    }
+
     //Title
     public function getTitle()
     {
