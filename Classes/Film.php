@@ -29,7 +29,7 @@ class film{
 
     public function getInfo(){
 
-        return "<h2>New Film:</h2><br>
+        return "<h2>New Film:</h2>
         - Title: " . $this->title .
         "<br>- Date of release: " . $this->release . 
         "<br>- Duration: " . $this->time ."min

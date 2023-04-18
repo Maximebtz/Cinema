@@ -22,6 +22,11 @@ class Role{
 
     //Getters and setters
 
+    public function getInfoRole(){
+        return "<h2>Roles :</h2> <br>" .
+        "The actors who played the role of <strong> " . $this->film->getTitle() . ": <strong>". $this->actor->getName() . " " .$this->actor->getSurname() . "</strong>";
+        
+    }
     //RoleName
     public function getRoleName()
     {
