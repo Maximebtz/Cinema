@@ -18,7 +18,7 @@ class film{
         $this->time = $time;
         $this->synopsis = $synopsis;
         $this->director = $director;
-        
+
     }
 
 
