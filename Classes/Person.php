@@ -10,7 +10,15 @@ class Person{
     private string $gender;
     private DateTime $dob;
 
+    //__construct
+    public function __construct(string $name, string $surname, string $gender, string $dob){
 
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->gender = $gender;
+        $this->dob = New DateTime($dob);
+
+    }
 
     //Methods
 
