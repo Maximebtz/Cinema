@@ -9,6 +9,7 @@ class Person{
     private string $surname;
     private string $gender;
     private DateTime $dob;
+    private array $filmTypes;
 
     //__construct
     public function __construct(string $name, string $surname, string $gender, string $dob){
@@ -17,12 +18,21 @@ class Person{
         $this->surname = $surname;
         $this->gender = $gender;
         $this->dob = New DateTime($dob);
-
+        $this->filmTypes = [];
     }
 
     //Methods
 
-
+    public function addGendersFilm(FilmType $filmType){
+		$this->filmTypes[] = $filmType;
+	}
+	public function getTabOfTypes(){
+			$results = "Books of " . $this . ":<br>";
+			foreach($this->filmTypes as $filmType){
+			$results .= "- " . $this->genderName . "<br>";
+        }
+        return $results;
+	}
 
 
     //Getters and setters
