@@ -17,8 +17,8 @@ $action = New FilmType("Action");
 
 //NewFilm
 $film1 = New Film("BatMan", "1999", 70, "Big shake eating some stuff", $director1, $action);
-$film2 = New Film("ehrtbeb", "egbegbe", 70, "Big egbegb eating some stuff", $director1, $action);
-$film3 = New Film("vehryngb", "bebeg", 70, "Big shake ebegb some stuff", $director1, $action);
+$film2 = New Film("Taken", "egbegbe", 70, "Big egbegb eating some stuff", $director1, $action);
+$film3 = New Film("Taken 2", "bebeg", 70, "Big shake ebegb some stuff", $director1, $action);
 
 //NewRole
 $role1 = New Role("BatMan", $film1, $actor1);
