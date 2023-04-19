@@ -8,19 +8,19 @@ class film{
     private int $time;
     private string $synopsis;
     private Director $director;
-    private FilmType $filmTypes;
+    private FilmType $filmType;
 
 
     //__construct
-    public function __construct(string $title, string $release, int $time, string $synopsis, Director $director, FilmType $filmTypes){
+    public function __construct(string $title, string $release, int $time, string $synopsis, Director $director, FilmType $filmType){
 
         $this->title = $title;
         $this->release = $release;
         $this->time = $time;
         $this->synopsis = $synopsis;
         $this->director = $director;
-        $this->filmTypes = $filmTypes;
-        $this->filmTypes->addFilmType($this);
+        $this->filmType = $filmType;
+        $this->filmType->addFilmType($this);
     }
 
     //Methods
@@ -102,12 +102,12 @@ class film{
 	}
 
     //Type
-	public function getfilmTypes(): FilmType {
-		return $this->filmTypes;
+	public function getfilmsTypes(): FilmType {
+		return $this->filmType;
 	}
 	
-	public function setfilmTypes(FilmType $filmTypes): self {
-		$this->filmTypes = $filmTypes;
+	public function setfilmsTypes(FilmType $filmTypes): self {
+		$this->filmType = $filmTypes;
 		return $this;
 	}
 }

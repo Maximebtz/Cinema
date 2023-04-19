@@ -4,27 +4,29 @@ class FilmType{
 
     //Attributs
     private string $genderName;
-    private array $films;
+    private array $filmType;
 
 
     //__construct
     public function __construct(string $genderName){
 
         $this->genderName = $genderName;
-        $this->films = [];
+        $this->filmType = [];
     }
+    
     //Methods
-    public function addFilmType(FilmType $film){
-		$this->films[] = $film;
+    public function addFilmType(Film $title){
+		$this->filmType[] = $title;
 	}
 
 	public function getTabOfTypes(){
 			$results = "The movie of the gender '" . $this->genderName . "' are:<br>";
-			foreach($this->films as $film){
-			$results .= "- " . $film . "<br>";
+			foreach($this->filmType as $title){
+			$results .= "- " . $title->getTitle() . "<br>";
         }
         return $results;
 	}
+
 
     //Getters and setters
 	public function getGenderName(): string {
@@ -35,8 +37,4 @@ class FilmType{
 		$this->genderName = $genderName;
 		return $this;
 	}
-
-    public function __toString(){
-        return $this->genderName;
-    }
 }
