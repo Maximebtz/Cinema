@@ -9,6 +9,8 @@ class Person{
     private string $surname;
     private string $gender;
     private DateTime $dob;
+    
+
 
     //__construct
     public function __construct(string $name, string $surname, string $gender, string $dob){
@@ -22,7 +24,7 @@ class Person{
 
     //Methods
 
-
+    
     //Getters and setters
 
     public function getCompletName(){
@@ -82,6 +84,7 @@ class Person{
 
         return $this;
     }
+
 }
 
 ?>

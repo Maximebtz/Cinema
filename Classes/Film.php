@@ -25,7 +25,7 @@ class film{
 
     //Methods
 
-
+    
     //Getters and setters 
 
     public function getInfo(){

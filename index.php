@@ -7,6 +7,9 @@ spl_autoload_register(function ($class_name) {
 //NewDirector
 $director1 = New Director("Bertuzzi", "Maxime", "Man", "30-03-1998");
 
+
+//NewCasting
+
 //NewActor
 $actor1 = New Actor("Mickael", "Keaton", "Man", "20-08-1968");
 $actor2 = New Actor("Val", "Kilmer", "Man", "20-08-1968");
@@ -21,8 +24,9 @@ $film2 = New Film("Taken", "egbegbe", 70, "Big egbegb eating some stuff", $direc
 $film3 = New Film("Taken 2", "bebeg", 70, "Big shake ebegb some stuff", $director1, $action);
 
 //NewRole
-$role1 = New Role("BatMan", $film1, $actor1);
+$role1 = New Role("BatMan", $film1, $castingBatman);
 
-echo $action->getTabOfTypes();
+$castingBatman = New Casting($film1, $actor1, $role1);
+// echo $action->getTabOfTypes();
 
-// echo $role1->getInfoRole();
+echo $role1->getInfoRole();

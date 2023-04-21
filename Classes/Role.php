@@ -5,27 +5,33 @@ class Role{
     //Attributs
     private string $roleName;
     private Film $film;
-    private Actor $actor;
+    private Casting $casting;
+    private array $actors;
 
     
     //__construct
 
-    public function __construct(string $roleName, Film $film, Actor $actor){
+    public function __construct(string $roleName, Film $film,  Casting $casting){
 
         $this->roleName = $roleName;
         $this->film = $film;
-        $this->actor = $actor;
-
+        $this->casting = $casting;
+        $this->casting->addRoleActors($this);
+        $this->actors = [];
     }
 
     //Methods
+
+    public function addActors(Actor $actor){
+        $this->actors[] = $actor;
+    }
 
     //Getters and setters
 
     public function getInfoRole(){
         return "<h2>Roles :</h2> <br>" .
-        "The actors who played the role of <strong> " . $this->getRoleName() . ": <strong>". $this->actor->getName() . " " .$this->actor->getSurname() . "</strong>";
-        
+        "The actors who played the role of <strong> " . $this->getRoleName() . ": <strong>". $this->casting->getActors() . "</strong>";
+    
     }
     //RoleName
     public function getRoleName()
@@ -54,15 +60,16 @@ class Role{
         return $this;
     }
 
-    //Actor
-    public function getActor()
+
+    //Casting
+    public function getCasting()
     {
-        return $this->actor;
+        return $this->casting;
     }
 
-    public function setActor($actor)
+    public function setCasting($casting)
     {
-        $this->actor = $actor;
+        $this->casting = $casting;
 
         return $this;
     }
