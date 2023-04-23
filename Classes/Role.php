@@ -5,34 +5,44 @@ class Role{
     //Attributs
     private string $roleName;
     private Film $film;
-    private Casting $casting;
-    private array $actors;
+    private Actor $actor;
+    private array $castings;
 
     
     //__construct
 
-    public function __construct(string $roleName, Film $film,  Casting $casting){
+    public function __construct(string $roleName, Film $film,  Actor $actor){
 
         $this->roleName = $roleName;
         $this->film = $film;
-        $this->casting = $casting;
-        $this->casting->addRoleActors($this);
-        $this->actors = [];
+        $this->actor = $actor;
+        
+        $this->castings = [];
     }
 
     //Methods
 
-    public function addActors(Actor $actor){
-        $this->actors[] = $actor;
-    }
 
+    public function addCasting(Casting $casting){
+        $this->castings[] = $casting;
+    }
+    public function getInfoRole(){
+        $results = "<h2>Roles :</h2>" .
+            "The actors who played the role of <strong>" . $this->roleName . "</strong> : ";
+    
+        foreach($this->castings as $casting){
+            if($casting->getRole() === $this){
+                $results .= $casting->getActor()->getCompletName() . ", ";
+            }
+        }
+        
+        $results = rtrim($results, ", ");
+        
+        return $results;
+    }
     //Getters and setters
 
-    public function getInfoRole(){
-        return "<h2>Roles :</h2> <br>" .
-        "The actors who played the role of <strong> " . $this->getRoleName() . ": <strong>". $this->casting->getActors() . "</strong>";
     
-    }
     //RoleName
     public function getRoleName()
     {
@@ -61,15 +71,14 @@ class Role{
     }
 
 
-    //Casting
-    public function getCasting()
+    public function getActor()
     {
-        return $this->casting;
+        return $this->actor;
     }
 
-    public function setCasting($casting)
+    public function setActor($actor)
     {
-        $this->casting = $casting;
+        $this->actor = $actor;
 
         return $this;
     }

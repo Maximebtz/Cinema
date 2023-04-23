@@ -3,29 +3,65 @@
 class Actor extends Person{
 
     private array $roles;
+    private array $castings;
 
-
-    //__construct
+    // __construct
     public function __construct(string $name, string $surname, string $gender, string $dob){
-
-        parent::__construct( $name, $surname, $gender, $dob);
+        parent::__construct( $name,  $surname,  $gender,  $dob);
+        
         $this->roles = [];
+        $this->castings = [];
+    }
+    
+
+    // Methods
+    public function addRole(Role $role){
+        $this->roles[] = $role;
+    }
+    public function addCasting(Casting $casting){
+        $this->castings[] = $casting;
     }
 
-    //Methods
 
-    
-    
 
-    public function getRole()
-    {
-        return $this->roles;
+    public function getAllFilms(){
+        $results = "<h2>The films in which <strong>" . $this->getCompletName() . "</strong> has played :</h2>"; 
+            
+    
+        foreach($this->castings as $casting){
+            if($casting->getActor() === $this){
+                $results .= $casting->getFilm()->getInfo() . "<br>";
+            }
+        }
+        
+        return $results;
     }
 
-    
-    public function setRole($role)
+
+    // Getters and setters
+
+
+    //Roles
+    public function getRoles()
+    {   
+         return $this->roles; 
+    }
+
+    public function setRoles($roles)
     {
-        $this->roles = $role;
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function getCastings()
+    {
+        return $this->castings;
+    }
+
+    public function setCastings($castings)
+    {
+        $this->castings = $castings;
 
         return $this;
     }

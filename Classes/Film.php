@@ -1,6 +1,6 @@
 <?php
 
-class film{
+class Film{
 
     //Attributs
     private string $title;
@@ -8,41 +8,61 @@ class film{
     private int $time;
     private string $synopsis;
     private Director $director;
+    private Actor $actor;
     private FilmType $filmType;
+    private array $castings;
 
 
     //__construct
-    public function __construct(string $title, string $release, int $time, string $synopsis, Director $director, FilmType $filmType){
+    public function __construct(string $title, string $release, int $time, string $synopsis, Director $director, Actor $actor, FilmType $filmType){
 
         $this->title = $title;
         $this->release = $release;
         $this->time = $time;
         $this->synopsis = $synopsis;
+
         $this->director = $director;
+        $this->director->addReleasedFilms($this);
+        
+        $this->actor = $actor;
+        
         $this->filmType = $filmType;
         $this->filmType->addFilmType($this);
+        
+        $this->castings = [];
+
     }
 
     //Methods
 
-    
+    public function addCasting(Casting $casting){
+        $this->castings[] = $casting;
+    }
+
+    public function getAllActor(){
+        $results = "<h2>" . $this->actor->getCompletName() . " has played these films :</h2>";
+			foreach($this->castings as $actor){
+			$results .= $this->getInfo() . "<br>"; "<br>";
+        }
+        return $results;
+    }
     //Getters and setters 
 
     public function getInfo(){
 
-        return "<h2>New Film:</h2>
-        - Title: " . $this->title .
-        "<br>- Date of release: " . $this->release . 
+        return 
+        "<h2>- " . $this->title .
+        "</h2>- Date of release: " . $this->release . 
         "<br>- Duration: " . $this->time ."min
         <br>- Synopsis: " . $this->synopsis . 
-        "<br>- Director: " . $this->director->getCompletName();
+        "<br>- Producer: " . $this->director->getCompletName();
         
     }
 
     //Title
     public function getTitle()
     {
-        return $this->title;
+        return "- Title : " . $this->title . "<br>";
     }
 
     public function setTitle($title)
@@ -55,7 +75,7 @@ class film{
     //Release
     public function getRelease()
     {
-        return $this->release;
+        return " Year : " . $this->release . "<br>";
     }
 
     public function setRelease($release)
@@ -68,7 +88,7 @@ class film{
     //Time
     public function getTime()
     {
-        return $this->time;
+        return " Time : ". $this->time. "<br>";
     }
 
     public function setTime($time)
@@ -101,13 +121,27 @@ class film{
 		return $this;
 	}
 
+    //Actor
+    public function getActor()
+    {
+        return $this->actor;
+    }
+
+    public function setActor($actor)
+    {
+        $this->actor = $actor;
+
+        return $this;
+    }
+
     //Type
-	public function getfilmsTypes(): FilmType {
+	public function getFilmsTypes(): FilmType {
 		return $this->filmType;
 	}
 	
-	public function setfilmsTypes(FilmType $filmTypes): self {
+	public function setFilmsTypes(FilmType $filmTypes): self {
 		$this->filmType = $filmTypes;
 		return $this;
 	}
+
 }
