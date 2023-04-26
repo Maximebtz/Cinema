@@ -22,11 +22,11 @@ class Director extends Person{
         $films = [];
         foreach($this->films as $film){
             if(!in_array($film->getTitle(), $films)){ //verification que si le film n'est pas déjà affiché 
-                $results .= $film->getTitle() . $film->getRelease() . $film->getTime() . "<br>";
+                $results .= $film->getTitle() . $film->getRelease() . $film->getTime() . "<br><br>";
                 $films[] = $film->getTitle();
             }
         }
-        return $results;
+        return "<div class='card'>" . $results . "</div>";
     }
     
 

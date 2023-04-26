@@ -1,3 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Styles/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Roboto+Mono:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+<div class="content">
 <?php
 
 spl_autoload_register(function ($class_name) {
@@ -33,9 +48,18 @@ $castingBatman = New Casting($film1, $actor1, $role1);
 $castingTaken = New Casting($film2, $actor1, $role2);
 $castingBatman = New Casting($film1, $actor2, $role1);
 $castingBatman = New Casting($film1, $actor3, $role1);
-// // echo $action->getTabOfTypes();
 
-echo $role1->getInfoRole();
+
+
 echo $director1->getDirectorFilms();
-// echo $film1->getAllActor();
+echo $action->getTabOfTypes();
+echo $role1->getInfoRole();
 echo $actor1->getAllFilms();
+echo $film1->getAllActor();
+
+
+?>
+</div>
+</body>
+</html>
+

@@ -40,19 +40,19 @@ class Film{
     }
 
     public function getAllActor(){
-        $results = "<h2>" . $this->actor->getCompletName() . " has played these films :</h2>";
+        $results = "<h2>In". $this->getTitle() . "</h2>";
 			foreach($this->castings as $actor){
-			$results .= $this->getInfo() . "<br>"; "<br>";
+			$results .= "- " . $actor->getRoleName() . "was embodied by" . $this->actor->getCompletName() . "<br>";
         }
-        return $results;
+        return "<div class='card'>" . $results . "</div>";
     }
     //Getters and setters 
 
     public function getInfo(){
 
         return 
-        "<h2>- " . $this->title .
-        "</h2>- Date of release: " . $this->release . 
+        "<h3>- " . $this->title .
+        "</h3>- Date of release: " . $this->release . 
         "<br>- Duration: " . $this->time ."min
         <br>- Synopsis: " . $this->synopsis . 
         "<br>- Producer: " . $this->director->getCompletName();
@@ -88,7 +88,7 @@ class Film{
     //Time
     public function getTime()
     {
-        return " Time : ". $this->time. "<br>";
+        return " Time : ". $this->time;
     }
 
     public function setTime($time)

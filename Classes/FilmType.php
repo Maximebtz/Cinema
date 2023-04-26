@@ -20,11 +20,16 @@ class FilmType{
 	}
 
 	public function getTabOfTypes(){
-			$results = "The movie of the gender '" . $this->genderName . "' are:<br>";
+			$results = "<h2>The movie of the gender '" . $this->genderName . "' are :</h2>";
+			$filmsType = [];
 			foreach($this->filmType as $title){
-			$results .= "- " . $title->getTitle() . "<br>";
+				if(!in_array($title->getTitle(), $filmsType)){
+					$results .=  $title->getTitle();
+					$filmsType[] = $title->getTitle();
+				}
         }
-        return $results;
+
+        return "<div class='card'>" . $results . "</div>";
 	}
 
 

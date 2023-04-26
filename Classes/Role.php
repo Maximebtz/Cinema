@@ -27,19 +27,17 @@ class Role{
         $this->castings[] = $casting;
     }
     public function getInfoRole(){
-        $results = "<h2>Roles :</h2>" .
-            "The actors who played the role of <strong>" . $this->roleName . "</strong> : ";
+        $results = "<h2>The actors who played the role of " . $this->roleName . " :</h2>";
     
         foreach($this->castings as $casting){
             if($casting->getRole() === $this){
-                $results .= $casting->getActor()->getCompletName() . ", ";
+                $results .= "- " . $casting->getActor()->getCompletName() . "<br>";
             }
         }
-        
-        $results = rtrim($results, ", ");
-        
-        return $results;
+        return "<div class='card'>" . $results . "</div>";
     }
+
+    
     //Getters and setters
 
     

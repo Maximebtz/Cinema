@@ -34,7 +34,7 @@ class Actor extends Person{
             }
         }
         
-        return $results;
+        return "<div class='card'>" . $results . "</div>";
     }
 
 
