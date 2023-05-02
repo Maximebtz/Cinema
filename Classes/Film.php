@@ -40,11 +40,11 @@ class Film{
     }
 
     public function getAllActor(){
-        $results = "<h2>In". $this->getTitle() . "</h2>";
+        $results = "<h2>In ". $this->getTitle() . ":</h2>";
 			foreach($this->castings as $actor){
-			$results .= "- " . $actor->getRoleName() . "was embodied by" . $this->actor->getCompletName() . "<br>";
+			$results .= "- " . $actor->getRole() . "was embodied by " . $actor->getActor() . "<br>";
         }
-        return "<div class='card'>" . $results . "</div>";
+        return "<div class='card 5'>" . $results . "</div>";
     }
     //Getters and setters 
 
@@ -62,7 +62,7 @@ class Film{
     //Title
     public function getTitle()
     {
-        return "- Title : " . $this->title . "<br>";
+        return  $this->title . "<br>";
     }
 
     public function setTitle($title)

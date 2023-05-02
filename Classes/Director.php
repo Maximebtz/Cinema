@@ -26,7 +26,7 @@ class Director extends Person{
                 $films[] = $film->getTitle();
             }
         }
-        return "<div class='card'>" . $results . "</div>";
+        return "<div class='card 1'>" . $results . "</div>";
     }
     
 

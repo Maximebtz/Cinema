@@ -24,7 +24,9 @@ class Person{
 
     //Methods
 
-    
+    public function __toString(){
+        return $this->getName() . " " . $this->getSurname();
+    }
     //Getters and setters
 
     public function getCompletName(){

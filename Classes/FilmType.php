@@ -29,7 +29,7 @@ class FilmType{
 				}
         }
 
-        return "<div class='card'>" . $results . "</div>";
+        return "<div class='card 2'>" . $results . "</div>";
 	}
 
 

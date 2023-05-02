@@ -5,9 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./Styles/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Roboto+Mono:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
@@ -41,13 +38,14 @@ $film2 = New Film("Taken", "2005", 142, "Big egbegb eating some stuff", $directo
 $film3 = New Film("Taken 2", "2011", 110, "Big shake ebegb some stuff", $director1,$actor3, $action);
 
 //NewRole
-$role1 = New Role("BatMan", $film1, $actor1);
-$role2 = New Role("Principal Actor", $film2, $actor1);
+$role1 = New Role("BatMan");
+$role2 = New Role("Principal Actor");
+$role3 = New Role("Joker");
 
 $castingBatman = New Casting($film1, $actor1, $role1);
+$castingBatman = New Casting($film1, $actor2, $role2);
+$castingBatman = New Casting($film1, $actor3, $role3);
 $castingTaken = New Casting($film2, $actor1, $role2);
-$castingBatman = New Casting($film1, $actor2, $role1);
-$castingBatman = New Casting($film1, $actor3, $role1);
 
 
 
